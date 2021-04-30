@@ -1,21 +1,26 @@
-import './App.css';
+import { useEffect } from 'react';
+import Home from 'src/pages/Home';
+import { useGeolocation } from 'src/hooks/useGeolocation';
 
-import React from 'react';
+import 'destyle.css';
+import { createGlobalStyle } from 'styled-components';
 
-import logo from './logo.svg';
+const GlobalStyle = createGlobalStyle`
+`;
 
-const App: React.VFC = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-        Learn React
-      </a>
-    </header>
-  </div>
-);
+const App: React.VFC = () => {
+  const { updatePosition, position, loading, errorMessage } = useGeolocation();
+  useEffect(() => {
+    updatePosition();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <>
+      <GlobalStyle />
+      <Home position={position} />
+    </>
+  );
+};
 
 export default App;
