@@ -32,13 +32,9 @@ jobs:
         run: yarn lint
       - name: Run jest
         run: yarn test
-      - name: Upload test coverage artifact
-        uses: actions/upload-artifact@v2
+      - name: Run the tests and generate coverage report
+        run: yarn test -- --coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
         with:
-          name: coverage
-          path: coverage
-      - name: Show coverage in comments
-        uses: ziishaned/jest-reporter-action@latest
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: 'yarn test -- --coverage'
+        token: ${{ secrets.CODECOV_TOKEN }}
