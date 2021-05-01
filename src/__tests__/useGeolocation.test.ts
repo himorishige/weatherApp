@@ -1,15 +1,20 @@
 import { useGeolocation } from 'src/hooks/useGeolocation';
-import { act, renderHook } from '@testing-library/react-hooks';
-import { cleanup } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks';
+import { cleanup, waitFor } from '@testing-library/react';
 
 afterEach(() => cleanup());
 
 describe('useGeolocation custom hook', () => {
-  test('position', () => {
+  test('初期値が東京駅の緯度経度になっている', () => {
     const { result } = renderHook(() => useGeolocation());
     expect(result.current.position).toStrictEqual({
       latitude: 35.681236,
       longitude: 139.767125,
     });
+  });
+  test('エラーになる', async () => {
+    const { result } = renderHook(() => useGeolocation());
+    await waitFor(() => result.current.updatePosition());
+    expect(result.current.errorMessage).toBe(true);
   });
 });

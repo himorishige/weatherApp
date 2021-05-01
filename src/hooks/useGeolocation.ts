@@ -58,7 +58,7 @@ export const useGeolocation = () => {
       });
     } catch (err) {
       const error = err as GeolocationPositionError;
-      console.error(error.message);
+      console.log(error.message);
       setErrorMessage(true);
     } finally {
       setLoading(false);

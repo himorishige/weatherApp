@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Home, { Props } from 'src/pages/Home';
 
 describe('OpenWeatherAPI', () => {
-  test('現在地の緯度経度を表示する', async () => {
+  test('緯度経度を表示する', () => {
     const props: Props = {
       position: {
         latitude: 35.681236,
