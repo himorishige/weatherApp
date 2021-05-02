@@ -2,6 +2,9 @@ import { useGeolocation } from 'src/hooks/useGeolocation';
 import { renderHook } from '@testing-library/react-hooks';
 import { cleanup, waitFor } from '@testing-library/react';
 
+beforeEach(() => {
+  jest.spyOn(console, 'error').mockImplementation();
+});
 afterEach(() => cleanup());
 
 describe('useGeolocation custom hook', () => {
@@ -16,5 +19,10 @@ describe('useGeolocation custom hook', () => {
     const { result } = renderHook(() => useGeolocation());
     await waitFor(() => result.current.updatePosition());
     expect(result.current.errorMessage).toBe(true);
+  });
+  test('エラーが出てもloadingが終了する', async () => {
+    const { result } = renderHook(() => useGeolocation());
+    await waitFor(() => result.current.updatePosition());
+    expect(result.current.loading).toBe(false);
   });
 });
