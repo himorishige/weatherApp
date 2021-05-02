@@ -12,7 +12,7 @@ describe('useGeolocation custom hook', () => {
       longitude: 139.767125,
     });
   });
-  test('エラーになる', async () => {
+  test('位置情報APIを利用できないブラウザではエラーになる', async () => {
     const { result } = renderHook(() => useGeolocation());
     await waitFor(() => result.current.updatePosition());
     expect(result.current.errorMessage).toBe(true);
