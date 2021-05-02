@@ -1,12 +1,9 @@
 import { useEffect } from 'react';
 import Home from 'src/pages/Home';
 import { useGeolocation } from 'src/hooks/useGeolocation';
-
-import 'destyle.css';
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-`;
+import { Global } from '@emotion/react';
+import { globalStyle } from 'src/styles';
+import { Button } from 'src/components/atoms';
 
 const App: React.VFC = () => {
   const { updatePosition, position, loading, errorMessage } = useGeolocation();
@@ -17,8 +14,9 @@ const App: React.VFC = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <Global styles={globalStyle} />
       <Home position={position} />
+      <Button />
     </>
   );
 };
