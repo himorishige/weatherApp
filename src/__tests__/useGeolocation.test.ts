@@ -3,6 +3,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import { cleanup, waitFor } from '@testing-library/react';
 
 beforeEach(() => {
+  jest.spyOn(console, 'log').mockImplementation();
   jest.spyOn(console, 'error').mockImplementation();
 });
 afterEach(() => cleanup());

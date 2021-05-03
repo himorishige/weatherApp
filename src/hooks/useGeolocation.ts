@@ -7,7 +7,7 @@ export const useGeolocation = () => {
     latitude: 35.681236,
     longitude: 139.767125,
   };
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
   const [position, setPosition] = useState<Position>(initialPosition);
 
