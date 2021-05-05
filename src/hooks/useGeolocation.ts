@@ -4,8 +4,8 @@ import { Position } from 'src/types';
 export const useGeolocation = () => {
   const initialPosition: Position = {
     // 初期値 東京駅
-    latitude: 35.681236,
-    longitude: 139.767125,
+    lat: 35.681236,
+    lng: 139.767125,
   };
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(false);
@@ -53,17 +53,18 @@ export const useGeolocation = () => {
       const currentPosition = await getCurrentPosition();
       console.log(currentPosition);
       setPosition({
-        latitude: currentPosition.coords.latitude,
-        longitude: currentPosition.coords.longitude,
+        lat: currentPosition.coords.latitude,
+        lng: currentPosition.coords.longitude,
       });
     } catch (err) {
       const error = err as GeolocationPositionError;
       console.log(error.message);
+      alert('現在地情報が取得できなかったため、東京の天気を表示します。');
       setErrorMessage(true);
     } finally {
       setLoading(false);
     }
   }, [getCurrentPosition]);
 
-  return { updatePosition, position, loading, errorMessage };
+  return { updatePosition, position, loading, errorMessage, setPosition };
 };
