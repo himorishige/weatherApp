@@ -32,6 +32,8 @@ jobs:
         run: yarn lint
       - name: Run jest
         run: yarn test
+        env:
+          SKIP_PREFLIGHT_CHECK: true
       - name: Run the tests and generate coverage report
         run: yarn test -- --coverage
       - name: Upload coverage to Codecov
