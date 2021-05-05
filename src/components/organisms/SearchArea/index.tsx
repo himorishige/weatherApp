@@ -38,7 +38,7 @@ const searchWrapperStyle = css`
 `;
 
 const inputStyle = css`
-  width: 70%;
+  width: calc(70% - 1rem);
   margin-right: 1rem;
 `;
 
