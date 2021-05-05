@@ -1,12 +1,15 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Button from '.';
+import Button, { Props } from '.';
 
 export default {
   title: 'WeatherApp/Atoms/Button',
   component: Button,
 } as Meta;
 
-const Template: Story = (args) => <Button {...args} />;
+const Template: Story<Props> = (args) => <Button {...args} />;
 
 export const SearchButton = Template.bind({});
+SearchButton.args = {
+  disabled: false,
+};
