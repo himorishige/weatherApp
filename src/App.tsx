@@ -1,24 +1,13 @@
-import { useEffect } from 'react';
-import Home from 'src/pages/Home';
-import { useGeolocation } from 'src/hooks/useGeolocation';
-
 import 'destyle.css';
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-`;
+import { Global } from '@emotion/react';
+import { globalStyle } from 'src/styles';
+import HomeContainer from 'src/components/pages/HomeContainer';
 
 const App: React.VFC = () => {
-  const { updatePosition, position, loading, errorMessage } = useGeolocation();
-  useEffect(() => {
-    updatePosition();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
-      <GlobalStyle />
-      <Home position={position} />
+      <Global styles={globalStyle} />
+      <HomeContainer />
     </>
   );
 };
