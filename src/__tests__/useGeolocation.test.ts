@@ -12,8 +12,8 @@ describe('useGeolocation custom hook', () => {
   test('初期値が東京駅の緯度経度になっている', () => {
     const { result } = renderHook(() => useGeolocation());
     expect(result.current.position).toStrictEqual({
-      latitude: 35.681236,
-      longitude: 139.767125,
+      lat: 35.681236,
+      lng: 139.767125,
     });
   });
   test('位置情報APIを利用できないブラウザではエラーになる', async () => {
