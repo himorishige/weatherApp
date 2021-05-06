@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import { memo } from 'react';
 import { css } from '@emotion/react';
 import { Position, WeatherData } from 'src/types';
 import {
@@ -19,44 +20,46 @@ export type Props = {
   clickHandler?: () => void;
 };
 
-const Home: React.VFC<Props> = ({
-  position,
-  data,
-  currentLocation,
-  inputHandler,
-  clickHandler,
-  searchDisabled,
-  inputDisabled,
-}) => {
-  return (
-    <div css={bodyWrapperStyle}>
-      <div css={searchAreaStyle}>
-        <SearchArea
-          inputHandler={inputHandler}
-          clickHandler={clickHandler}
-          inputDisabled={inputDisabled}
-          searchDisabled={searchDisabled}
-        />
+const Home: React.VFC<Props> = memo(
+  ({
+    position,
+    data,
+    currentLocation,
+    inputHandler,
+    clickHandler,
+    searchDisabled,
+    inputDisabled,
+  }) => {
+    return (
+      <div css={bodyWrapperStyle}>
+        <div css={searchAreaStyle}>
+          <SearchArea
+            inputHandler={inputHandler}
+            clickHandler={clickHandler}
+            inputDisabled={inputDisabled}
+            searchDisabled={searchDisabled}
+          />
+        </div>
+        <div css={wrapperStyle}>
+          <div css={currentInfoStyle}>
+            <CurrentInfo data={data} currentLocation={currentLocation} />
+          </div>
+          <div css={mapAreaStyle}>
+            <MapArea position={position} />
+          </div>
+        </div>
+        <div css={wrapperStyle}>
+          <div css={graphAreaStyle}>
+            <GraphArea data={data} />
+          </div>
+          <div css={forecastAreaStyle}>
+            <ForecastArea data={data} />
+          </div>
+        </div>
       </div>
-      <div css={wrapperStyle}>
-        <div css={currentInfoStyle}>
-          <CurrentInfo data={data} currentLocation={currentLocation} />
-        </div>
-        <div css={mapAreaStyle}>
-          <MapArea position={position} />
-        </div>
-      </div>
-      <div css={wrapperStyle}>
-        <div css={graphAreaStyle}>
-          <GraphArea data={data} />
-        </div>
-        <div css={forecastAreaStyle}>
-          <ForecastArea data={data} />
-        </div>
-      </div>
-    </div>
-  );
-};
+    );
+  },
+);
 
 export default Home;
 

@@ -5,6 +5,7 @@ exports[`Atoms/Skelton 正しくレンダリングされている 1`] = `
   className="css-um99sb-Skelton"
   style={
     Object {
+      "borderRadius": "0",
       "height": "1.5rem",
       "width": "100%",
     }

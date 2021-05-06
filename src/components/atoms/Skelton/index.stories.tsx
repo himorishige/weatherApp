@@ -14,4 +14,5 @@ Default.storyName = 'ローディング時';
 Default.args = {
   width: '100%',
   height: '1.5rem',
+  radius: '0',
 };

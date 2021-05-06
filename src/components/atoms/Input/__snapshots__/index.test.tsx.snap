@@ -3,7 +3,7 @@
 exports[`Atoms/Input 正しくレンダリングされている 1`] = `
 <input
   aria-label="search input"
-  className="css-31czxj-Input"
+  className="css-tunyfq"
   data-testid="input"
   defaultValue=""
   disabled={false}

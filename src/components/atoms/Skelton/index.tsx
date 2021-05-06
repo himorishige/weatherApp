@@ -5,12 +5,18 @@ import { css, keyframes } from '@emotion/react';
 export type Props = {
   height?: string;
   width?: string;
+  radius?: string;
 };
 
 const Skelton: React.VFC<Props> = (props) => {
-  const { height = '1.5rem', width = '100%' } = props;
+  const { height = '1.5rem', width = '100%', radius = '0' } = props;
 
-  return <div css={skeltonStyle} style={{ width: `${width}`, height: `${height}` }} />;
+  return (
+    <div
+      css={skeltonStyle}
+      style={{ width: `${width}`, height: `${height}`, borderRadius: `${radius}` }}
+    />
+  );
 };
 
 export default Skelton;

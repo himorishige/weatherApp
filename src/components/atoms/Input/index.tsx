@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { memo } from 'react';
 import { css } from '@emotion/react';
 
 export type Props = {
@@ -7,7 +7,7 @@ export type Props = {
   place?: string;
   inputHandler?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
-const Input: React.VFC<Props> = ({ place, disabled = false, inputHandler }) => {
+const Input: React.VFC<Props> = memo(({ place, disabled = false, inputHandler }) => {
   return (
     <>
       <input
@@ -23,7 +23,7 @@ const Input: React.VFC<Props> = ({ place, disabled = false, inputHandler }) => {
       />
     </>
   );
-};
+});
 
 export default Input;
 
