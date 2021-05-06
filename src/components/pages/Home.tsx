@@ -12,11 +12,11 @@ import {
 export type Props = {
   position: Position;
   data: WeatherData | null;
-  inputDisabled: boolean;
-  searchDisabled: boolean;
+  inputDisabled?: boolean;
+  searchDisabled?: boolean;
   currentLocation?: string;
-  inputHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  clickHandler: () => void;
+  inputHandler?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  clickHandler?: () => void;
 };
 
 const Home: React.VFC<Props> = ({

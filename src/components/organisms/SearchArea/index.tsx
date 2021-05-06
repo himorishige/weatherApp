@@ -4,10 +4,10 @@ import { css } from '@emotion/react';
 import { Button, Input } from 'src/components/atoms';
 
 export type Props = {
-  inputHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  clickHandler: () => void;
-  inputDisabled: boolean;
-  searchDisabled: boolean;
+  inputHandler?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  clickHandler?: () => void;
+  inputDisabled?: boolean;
+  searchDisabled?: boolean;
 };
 
 const SearchArea: React.VFC<Props> = ({
