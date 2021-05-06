@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 
 export type Props = {
   disabled?: boolean;
-  clickHandler: () => void;
+  clickHandler?: () => void;
 };
 
 const Button: React.VFC<Props> = ({ disabled = false, clickHandler }) => {

@@ -8,8 +8,13 @@ export default {
   component: ForecastArea,
 } as Meta;
 
-export const Default: Story<Props> = (args) => <ForecastArea {...args} />;
+const Template: Story<Props> = (args) => <ForecastArea {...args} />;
 
+export const Default = Template.bind({});
+Default.storyName = '読み込み完了時';
 Default.args = {
   data: data,
 };
+
+export const Loading = Template.bind({});
+Loading.storyName = 'ローディング中';
