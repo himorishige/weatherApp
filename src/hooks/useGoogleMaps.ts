@@ -55,10 +55,8 @@ export const useGoogleMaps = () => {
       if (loadError) {
         console.log('住所から緯度経度への変換に失敗しました');
       }
-
-      return gaPosition;
     },
-    [gaPosition, isLoaded, loadError],
+    [isLoaded, loadError],
   );
 
   return {

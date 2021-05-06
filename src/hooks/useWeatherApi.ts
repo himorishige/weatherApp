@@ -17,8 +17,7 @@ export const useWeatherApi = () => {
       console.log(res.data);
       setWeatherData(res.data);
     } catch (error) {
-      // todo エラー処理を入れる
-      console.log(error);
+      alert('データが正しく取得できませんでした。');
     } finally {
       setLoadingApi(false);
     }

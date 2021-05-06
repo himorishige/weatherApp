@@ -5,8 +5,8 @@ import { useGoogleMaps } from 'src/hooks/useGoogleMaps';
 import Home from './Home';
 
 const HomeContainer: React.VFC = () => {
-  const { updatePosition, position, loading, errorMessage, setPosition } = useGeolocation();
-  const { loadingApi, fetchWeather, weatherData } = useWeatherApi();
+  const { updatePosition, position, loading, setPosition } = useGeolocation();
+  const { fetchWeather, weatherData, loadingApi } = useWeatherApi();
   const { addressToPosition, gaPosition } = useGoogleMaps();
 
   const [keyword, setKeyword] = useState('');
@@ -26,7 +26,9 @@ const HomeContainer: React.VFC = () => {
 
   const clickHandler = async () => {
     setInputDisabled(true);
-    await addressToPosition(keyword);
+    if (!loadingApi) {
+      await addressToPosition(keyword);
+    }
     setInputDisabled(false);
   };
 
@@ -50,14 +52,9 @@ const HomeContainer: React.VFC = () => {
       setPosition(gaPosition);
       fetchWeather(gaPosition);
       setCurrentLocation(keyword);
-      console.log('gaposition');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gaPosition]);
-
-  // if (loading || loadingApi) {
-  //   return <div>loading...</div>;
-  // }
 
   return (
     <>
