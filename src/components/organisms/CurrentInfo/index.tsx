@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { memo } from 'react';
 import { css } from '@emotion/react';
 import { WeatherData } from 'src/types';
 import { useHelper } from 'src/hooks/useHelper';
@@ -12,7 +12,7 @@ export type Props = {
 
 const ICON_URL = process.env.REACT_APP_OPENWEATHER_ICON_URL || '';
 
-const CurrentInfo: React.VFC<Props> = (props) => {
+const CurrentInfo: React.VFC<Props> = memo((props) => {
   const { data, currentLocation } = props;
 
   const { printWindDirection, formatUnixtime } = useHelper();
@@ -73,7 +73,7 @@ const CurrentInfo: React.VFC<Props> = (props) => {
           </h2>
           <div css={currentDataStyle}>
             <div style={{ marginRight: '1rem' }}>
-              <Skelton width="50px" height="50px" />
+              <Skelton width="50px" height="50px" radius="8px" />
             </div>
             <h3>
               <Skelton width="200px" height="3rem" />
@@ -135,7 +135,7 @@ const CurrentInfo: React.VFC<Props> = (props) => {
       )}
     </>
   );
-};
+});
 
 export default CurrentInfo;
 

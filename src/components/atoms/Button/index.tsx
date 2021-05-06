@@ -1,19 +1,19 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { memo } from 'react';
 import { css } from '@emotion/react';
 
 export type Props = {
   disabled?: boolean;
-  clickHandler: () => void;
+  clickHandler?: () => void;
 };
 
-const Button: React.VFC<Props> = ({ disabled = false, clickHandler }) => {
+const Button: React.VFC<Props> = memo(({ disabled = false, clickHandler }) => {
   return (
     <button type="button" css={buttonStyle} disabled={disabled} onClick={clickHandler}>
       検索する
     </button>
   );
-};
+});
 
 export default Button;
 

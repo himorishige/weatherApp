@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Skelton } from 'src/components/atoms';
 import { ForecastListItem } from 'src/components/molecules';
 import { WeatherData } from 'src/types';
@@ -7,7 +7,7 @@ export type Props = {
   data: WeatherData | null;
 };
 
-const ForecastArea: React.VFC<Props> = ({ data }) => {
+const ForecastArea: React.VFC<Props> = memo(({ data }) => {
   return (
     <>
       <h2>7日間予報</h2>
@@ -26,6 +26,6 @@ const ForecastArea: React.VFC<Props> = ({ data }) => {
       )}
     </>
   );
-};
+});
 
 export default ForecastArea;

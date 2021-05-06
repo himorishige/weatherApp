@@ -8,8 +8,13 @@ export default {
   component: CurrentInfo,
 } as Meta;
 
-export const Default: Story<Props> = (args) => <CurrentInfo {...args} />;
+const Template: Story<Props> = (args) => <CurrentInfo {...args} />;
 
+export const Default = Template.bind({});
+Default.storyName = '読み込み完了時';
 Default.args = {
   data: data,
 };
+
+export const Loading = Template.bind({});
+Loading.storyName = 'ローディング中';
