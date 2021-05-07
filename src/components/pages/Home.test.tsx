@@ -1,9 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Home, { Props } from 'src/components/pages/Home';
-import { data } from 'src/data/openweather';
+import HomeContainer from './HomeContainer';
 
-describe('OpenWeatherAPI', () => {});
-it.todo('現在地のGoogleMapが表示される');
-it.todo('一時間ごとの予測グラフが表示される');
-it.todo('7日間の予報が表示される');
+beforeEach(() => {
+  jest.spyOn(window, 'alert').mockImplementation();
+  jest.spyOn(console, 'log').mockImplementation();
+  jest.spyOn(console, 'error').mockImplementation();
+});
+
+describe('Home component', () => {
+  test('GoogleMap表示エリアが表示される', async () => {
+    render(<HomeContainer />);
+    expect(await screen.findByTestId('google-map')).toBeTruthy();
+  });
+});

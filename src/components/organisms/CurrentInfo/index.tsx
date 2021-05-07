@@ -24,41 +24,43 @@ const CurrentInfo: React.VFC<Props> = memo((props) => {
           <div css={currentTimeStyle} data-testid="datetime">
             取得日時：{formatUnixtime(data.current.dt, 'Y/M/d kk:mm:ss')}
           </div>
-          <h2 css={currentLocationStyle}>{currentLocation || '現在地'}付近</h2>
+          <h2 css={currentLocationStyle} data-testid="location">
+            {currentLocation || '現在地'}付近
+          </h2>
           <div css={currentDataStyle}>
-            <div>
+            <div data-testid="weather-img">
               <img src={`${ICON_URL}/10d@2x.png`} alt="" width="50" height="50" />
             </div>
-            <h3>{data.current.temp.toFixed(1)}℃</h3>
+            <h3 data-testid="temp">{data.current.temp.toFixed(1)}℃</h3>
           </div>
           <div css={dataListWrapperStyle}>
             <dl css={dataListStyle}>
               <div css={dataItemStyle}>
                 <dt>体感温度：</dt>
-                <dd>{data.current.feels_like.toFixed(1)}℃</dd>
+                <dd data-testid="feels-like">{data.current.feels_like.toFixed(1)}℃</dd>
               </div>
               <div css={dataItemStyle}>
                 <dt>最高気温：</dt>
-                <dd>{data.daily[0].temp.max.toFixed(1)}℃</dd>
+                <dd data-testid="temp-max">{data.daily[0].temp.max.toFixed(1)}℃</dd>
               </div>
               <div css={dataItemStyle}>
                 <dt>最低気温：</dt>
-                <dd>{data.daily[0].temp.min.toFixed(1)}℃</dd>
+                <dd data-testid="temp-min">{data.daily[0].temp.min.toFixed(1)}℃</dd>
               </div>
               <div css={dataItemStyle}>
                 <dt>風向き：</dt>
-                <dd>
+                <dd data-testid="wind">
                   {printWindDirection(data.current.wind_deg)}
                   {data.current.wind_speed.toFixed(1)}m/s
                 </dd>
               </div>
               <div css={dataItemStyle}>
                 <dt>気圧：</dt>
-                <dd>{data.current.pressure}hPa</dd>
+                <dd data-testid="pressure">{data.current.pressure}hPa</dd>
               </div>
               <div css={dataItemStyle}>
                 <dt>湿度：</dt>
-                <dd>{data.current.humidity}%</dd>
+                <dd data-testid="humidity">{data.current.humidity}%</dd>
               </div>
             </dl>
           </div>
