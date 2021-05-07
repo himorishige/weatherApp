@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { renderHook } from '@testing-library/react-hooks';
 import { cleanup, waitFor } from '@testing-library/react';
 import { useWeatherApi } from 'src/hooks/useWeatherApi';
