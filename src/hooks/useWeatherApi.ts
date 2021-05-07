@@ -14,7 +14,7 @@ export const useWeatherApi = () => {
     try {
       const URL = `${API_URL}/onecall?lat=${position.lat}&lon=${position.lng}&units=metric&lang=ja&exclude=minutely&appid=${API_KEY}`;
       const res = await axios.get<WeatherData>(URL);
-      console.log(res.data);
+      // console.log(res.data);
       setWeatherData(res.data);
     } catch (error) {
       alert('データが正しく取得できませんでした。');

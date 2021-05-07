@@ -44,7 +44,7 @@ const Home: React.VFC<Props> = memo(
           <div css={currentInfoStyle}>
             <CurrentInfo data={data} currentLocation={currentLocation} />
           </div>
-          <div css={mapAreaStyle}>
+          <div css={mapAreaStyle} data-testid="google-map">
             <MapArea position={position} />
           </div>
         </div>
