@@ -6,7 +6,7 @@
 
 ## 動作に必要な外部サービス
 
-OpenWeatherAPIの認証キー、Google Maps APIの認証キーが必要となります。
+[OpenWeather API](https://openweathermap.org/)のAPIキーと[Google Maps API](https://developers.google.com/maps?hl=ja)のキーが必要となります。
 
 ## 初期設定
 
