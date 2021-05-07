@@ -12,9 +12,11 @@ const ForecastArea: React.VFC<Props> = memo(({ data }) => {
     <>
       <h2>7日間予報</h2>
       {data ? (
-        <>{data.daily.map((item) => <ForecastListItem key={item.dt} data={item} />).slice(0, 7)}</>
+        <div data-testid="forecast">
+          {data.daily.map((item) => <ForecastListItem key={item.dt} data={item} />).slice(0, 7)}
+        </div>
       ) : (
-        <div>
+        <div data-testid="skelton">
           <Skelton height="2.5rem" />
           <Skelton height="2.5rem" />
           <Skelton height="2.5rem" />
