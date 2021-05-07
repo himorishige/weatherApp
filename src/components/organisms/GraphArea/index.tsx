@@ -70,11 +70,13 @@ const GraphArea: React.VFC<Props> = memo(({ data }) => {
     <>
       <h2>1時間ごとの予想気温</h2>
       {data ? (
-        <Line type={Line} data={graphData} width={100} height={70} options={options} />
+        <div data-testid="graph">
+          <Line type={Line} data={graphData} width={100} height={70} options={options} />
+        </div>
       ) : (
-        <>
+        <div data-testid="skelton">
           <Skelton height="320px" />
-        </>
+        </div>
       )}
     </>
   );
