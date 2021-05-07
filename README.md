@@ -2,7 +2,7 @@
 
 このプロジェクトは現在地の天気情報、検索した地域の天気情報をOpenWeatherAPIから取得して表示するアプリケーションのソースコードになります。
 
-スクリーンショット
+![Weather App](https://user-images.githubusercontent.com/71954454/117394489-3b6a1b80-af31-11eb-8b3c-16ffac04c119.png)
 
 ## 動作に必要な外部サービス
 
@@ -11,10 +11,13 @@ OpenWeatherAPIの認証キー、Google Maps APIの認証キーが必要となり
 ## 初期設定
 
 動作に必要な設定について
+`.env`
 
 ```bash:.env
 SKIP_PREFLIGHT_CHECK=true // storybook用の記載
 ```
+
+`.env.local`
 
 ```bash:.env.local
 REACT_APP_OPENWEATHER_API_URL=OpenWeatherAPIのエンドポイント
